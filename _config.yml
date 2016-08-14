@@ -11,7 +11,7 @@ email: john@johnlannon.com
 description: > # this means to ignore newlines until "baseurl:"
   Thoughts on things by that person.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://yourdomain.com" # the base hostname & protocol for your site
+url: "" # the base hostname & protocol for your site
 twitter_username: johnlannon
 github_username: lannon
 facebook_username: john.lannon
