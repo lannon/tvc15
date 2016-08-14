@@ -12,6 +12,7 @@ layout: default
         <h2>
           <a class="post-link" href="{{ post.url | prepend: site.github.url }}">{{ post.title }}</a>
         </h2>
+        {{ post.excerpt | strip_html }}
       </li>
     {% endfor %}
   </ul>
