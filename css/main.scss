@@ -3,53 +3,136 @@
 ---
 @charset "utf-8";
 
-
-
 // Our variables
-$base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-$base-font-size:   16px;
-$base-font-weight: 400;
-$small-font-size:  $base-font-size * 0.875;
-$base-line-height: 1.5;
+//$base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-$spacing-unit:     30px;
+// colors
+$light-gray-color: #eee;
+$medium-gray-color: #aaa;
+$dark-gray-color: #666;
+$darkest-gray-color: #222;
+$dark-turquoise-color: #00CED1;
+$teal-color: #008080;
 
-$text-color:       #111;
-$background-color: #fdfdfd;
-$brand-color:      #2a7ae2;
+// fonts
 
-$grey-color:       #828282;
-$grey-color-light: lighten($grey-color, 40%);
-$grey-color-dark:  darken($grey-color, 25%);
-
-// Width of the content area
-$content-width:    800px;
-
-$on-palm:          600px;
-$on-laptop:        800px;
-
-
-
-// Use media queries like this:
-// @include media-query($on-palm) {
-//     .wrapper {
-//         padding-right: $spacing-unit / 2;
-//         padding-left: $spacing-unit / 2;
-//     }
-// }
-@mixin media-query($device) {
-    @media screen and (max-width: $device) {
-        @content;
-    }
-}
-
-
+$heading-font-family: 'Open Sans', sans-serif;
+$body-font-family: 'Noto Serif', serif;
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
-        "base",
-        "layout",
-        "syntax-highlighting",
         "normalize",
-        "skeleton"
+        "skeleton",
+        "syntax-highlighting"
 ;
+
+
+// styles
+
+body {
+  background: #f5f4f2;
+
+  .content {
+    background: #fff;
+    padding: 3rem 0 3rem 0;
+  }
+}
+
+.logo a {
+  color: rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+}
+
+// header
+#site-header {
+  cursor: default;
+  height: 6rem;
+  left: 0;
+  line-height: 5rem;
+  top: 0;
+  width: 100%;
+  z-index: 10000;
+  border-bottom: 1px solid #ccc;
+
+  h1 {
+    height: inherit;
+    line-height: inherit;
+    position: absolute;
+    left: 0;
+    top: 0;
+    vertical-align: middle;
+    padding: 0;
+    margin: 0;
+  }
+
+  nav {
+    height: inherit;
+    line-height: inherit;
+    position: absolute;
+    right: 0;
+    top: 0.5rem; 
+    vertical-align: middle;
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding-left: 0;
+
+      li {
+        display: inline-block;
+        margin-left: 2em;
+        padding-left: 0;
+
+        a {
+          color: #555f66;
+          display: inline-block;
+          text-decoration: none;
+          text-transform: uppercase;
+        }
+
+        &:first-child { margin-left: 0; }
+
+      }
+    }
+  }
+}
+
+footer {
+  padding: 3rem 0 3rem 0;
+  text-align: center;
+  border-top: 1px solid #ccc;
+  ul {
+    list-style-type: none;
+  }
+  p.site-description {
+    text-transform: uppercase;
+  }
+  ul.social-media-list {
+    li { 
+      display: inline-block;
+      margin-left: 2em;
+      padding-left: 0;
+
+      &:first-child { margin-left: 0; }
+      &:hover path { fill: $dark-turquoise-color; }
+    }
+  }
+}
+
+/**
+ * Icons
+ */
+.icon {
+
+    > svg {
+        display: inline-block;
+        width: 32px;
+        height: 32px;
+        vertical-align: middle;
+
+        path {
+            fill: $medium-gray-color;
+        }
+    }
+}
+

@@ -1,38 +1,46 @@
-<footer class="site-footer">
+<footer class="u-full-width">
 
-  <div class="wrapper">
+  <div class="container">
 
-    <h2 class="footer-heading">{{ site.title }}</h2>
-
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li>{{ site.title }}</li>
-          <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col footer-col-2">
-        <ul class="social-media-list">
-          {% if site.github_username %}
-          <li>
-            {% include icon-github.html username=site.github_username %}
-          </li>
-          {% endif %}
-
-          {% if site.twitter_username %}
-          <li>
-            {% include icon-twitter.html username=site.twitter_username %}
-          </li>
-          {% endif %}
-        </ul>
-      </div>
-
-      <div class="footer-col footer-col-3">
-        <p>{{ site.description }}</p>
-      </div>
+    <div class="row">
+      <h2 class="logo"><a title="oh my" href="{{ site.baseurl }}/"> {{ site.title }}</a></h2>
     </div>
 
-  </div>
+    <div class="row">
+      <p class="site-description">{{ site.description }}</p>
+    </div>
 
+    <div class="row">
+      <ul class="social-media-list">
+        <li>
+          {% include icon-rss.html %}
+        </li>
+
+        </li>
+        {% if site.github_username %}
+        <li>
+          {% include icon-github.html username=site.github_username %}
+        </li>
+        {% endif %}
+
+        {% if site.twitter_username %}
+        <li>
+          {% include icon-twitter.html username=site.twitter_username %}
+        </li>
+        {% endif %}
+
+        {% if site.instagram_username%}
+        <li>
+          {% include icon-instagram.html username=site.instagram_username %}
+        </li>
+        {% endif %}
+
+        {% if site.facebook_username%}
+        <li>
+          {% include icon-facebook.html username=site.facebook_username %}
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
 </footer>

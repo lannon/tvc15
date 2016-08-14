@@ -1,0 +1,130 @@
+---
+layout: page
+title: Nutrition Calculator
+permalink: /nutrition-calculator/
+---
+<style>
+  td.user-input { padding-top: 2.5rem; }
+</style>
+
+<div class="row">
+  <p>
+    <strong>tl;dr</strong>: A simple calculator that attempts to calculate caloric load and macronutrient totals as described by Jordan Feigenbaum in his post titled
+    <a href="http://www.barbellmedicine.com/potpourri/584/" target="_blank">To Be a Beast</a>.
+  </p>
+  <table>
+    <thead>
+      <tr>
+        <th>Goal</th>
+        <th>Sex</th>
+        <th>Weight</th>
+        <th>Calories</th>
+        <th>Protein</th>
+        <th>Carbohydates</th>
+        <th>Fat</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="user-input">
+          <select id="planName" onchange="calc()" title="plan goal">
+            <option value="Recomposition">Recomposition</option>
+            <option value="Fat Loss">Fat Loss</option>
+            <option value="Muscle Gain">Muscle Gain</option>
+          </select>
+        </td>
+        <td class="user-input">
+          <select id="sex" onchange="calc()" title="sex -- pick the closest one">
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+          </select>
+        </td>
+        <td class="user-input">
+          <input type="number" id="weight" value=200 onchange="calc()" title="weight (in pounds)">
+        </td>
+        <td id="calcCalories"></td>
+        <td id="calcProtein"></td>
+        <td id="calcCarbohydrates"></td>
+        <td id="calcFat"></td>
+      </tr>
+      <tr>
+        <td colspan="7">Disclaimer: The above data are based on the concrete expamples detailed in the above referenced post. They're oversimplified and not mean to represent Feigenbaum's actual program. Also, the author is not a doctor, lawywer, nutritionist, certified trainer or anything really. Take this with a grain of a salt.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="row">
+  <h3>What Is This?</h3>
+
+</div>
+<script>
+  var Plan = function(sex, goal, calories, protein, carbohydrates, fat) {
+    this.sex           = sex; // 'M' or 'F'
+    this.goal          = goal; // 'Recomposition', 'Fat Loss', 'Muscle Gain'
+    this.calories      = calories; // kcal/lb
+    this.protein       = protein; // g/lb
+    this.carbohydrates = carbohydrates; // g/lb
+    this.fat           = fat; // g/lb
+  }
+
+  var plans = [
+    //       sex, goal,            kCal/lb, protein (g/lb), carbs (g/lb), fat (g/lb)
+    new Plan('M', 'Recomposition', 12.75,   1.15,           1.25,         0.35),
+    new Plan('M', 'Fat Loss',      11.43,   1.25,           1.00,         0.27),
+    new Plan('M', 'Muscle Gain',   16.90,   1.10,           1.20,         0.50),
+    new Plan('F', 'Recomposition', 12.62,   1.10,           1.20,         0.38),
+    new Plan('F', 'Fat Loss',      11.35,   1.15,           0.90,         0.35),
+    new Plan('F', 'Muscle Gain',   14.90,   1.00,           1.60,         0.50)
+  ]
+
+  var Client = function(weight, sex) {
+    this.weight  = weight; // in lbs
+    this.sex     = sex; // 'M' or 'F'
+    this.plan    = null; // see Plan
+    this.plans   = plans;
+    this.setPlan = function(goal) {
+      this.plans.find(function(_plan) {
+        if ((this.sex == _plan.sex) && (goal == _plan.goal)) {
+          return this.plan = _plan
+        }
+      }, this)
+    };
+    this.calories = function() {
+      if (this.plan) {
+        return Math.round(this.plan.calories * this.weight);
+      }
+    };
+    this.protein  = function() {
+      if (this.plan) {
+        return Math.round(this.plan.protein * this.weight);
+      }
+    };
+    this.carbohydrates = function() {
+      if (this.plan) {
+        return Math.round(this.plan.carbohydrates * this.weight);
+      }
+    };
+    this.fat = function() {
+      if (this.plan) {
+        return Math.round(this.plan.fat * this.weight);
+      }
+    };
+  }
+
+  var calc = function() {
+    var weight = document.getElementById('weight').value;
+    var sex = document.getElementById('sex').value;
+    var planName = document.getElementById('planName').value;
+    var c = new Client(weight, sex);
+    c.setPlan(planName);
+    document.getElementById('calcCalories').innerHTML = c.calories();
+    document.getElementById('calcProtein').innerHTML = c.protein();
+    document.getElementById('calcCarbohydrates').innerHTML = c.carbohydrates();
+    document.getElementById('calcFat').innerHTML = c.fat();
+  };
+
+  $(function() {
+    calc();
+  })
+</script>
+
