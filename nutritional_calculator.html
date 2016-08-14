@@ -56,6 +56,7 @@ permalink: /nutrition-calculator/
 <div class="row">
   <h3>What Is This?</h3>
 
+  <p>Macronutrient composition is more important than caloric load as one can calculate caloric load given macronutrients. However, one cannot determine macros from calories alone.</p>
 </div>
 <script>
   var Plan = function(sex, goal, calories, protein, carbohydrates, fat) {
@@ -68,6 +69,7 @@ permalink: /nutrition-calculator/
   }
 
   var plans = [
+    //                                      4 cal/g         4 cal/g       9 cal/g
     //       sex, goal,            kCal/lb, protein (g/lb), carbs (g/lb), fat (g/lb)
     new Plan('M', 'Recomposition', 12.75,   1.15,           1.25,         0.35),
     new Plan('M', 'Fat Loss',      11.43,   1.25,           1.00,         0.27),
