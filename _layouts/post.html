@@ -7,7 +7,7 @@ layout: default
     <h2 class="page-heading" itemprop="name headline">{{ page.title }}</h2>
     <p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}</p>
     {% if page.tldr %}
-      <h5><strong>tl;dr</strong>: {{ page.tldr }}</h5>
+      <p class="tldr"><strong>tl;dr</strong>: {{ page.tldr }}</p>
     {% endif %}
   </header>
 
@@ -15,4 +15,5 @@ layout: default
     {{ content }}
   </div>
 
+  {% include externalize_links.html %}
 </article>

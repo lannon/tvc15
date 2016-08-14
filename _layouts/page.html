@@ -6,7 +6,7 @@ layout: default
   <header class="post-header">
     <h2 class="page-heading">{{ page.title }}</h2>
     {% if page.tldr %}
-      <h5>tl;dr: {{ page.tldr }}</h5>
+      <p class="tldr"><strong>tl;dr</strong>: {{ page.tldr }}</p>
     {% endif %}
   </header>
 
@@ -14,4 +14,5 @@ layout: default
     {{ content }}
   </div>
 
+  {% include externalize_links.html %}
 </article>
