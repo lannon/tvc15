@@ -19,3 +19,7 @@ instagram_username: john_lannon
 
 # Build settings
 markdown: kramdown
+
+# Github setting (these will be overriden when deployed to GH)
+github:
+  url: http://localhost:4000
