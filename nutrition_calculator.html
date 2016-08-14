@@ -2,17 +2,15 @@
 layout: page
 title: Nutrition Calculator
 permalink: /nutrition-calculator/
+tldr: A simple calculator that attempts to calculate caloric load and macronutrient totals as described by Jordan Feigenbaum in his post titled
+    <a href="http://www.barbellmedicine.com/potpourri/584/" target="_blank">To Be a Beast</a>.
 ---
 <style>
   td.user-input { padding-top: 2.5rem; }
 </style>
 
 <div class="row">
-  <p>
-    <strong>tl;dr</strong>: A simple calculator that attempts to calculate caloric load and macronutrient totals as described by Jordan Feigenbaum in his post titled
-    <a href="http://www.barbellmedicine.com/potpourri/584/" target="_blank">To Be a Beast</a>.
-  </p>
-  <table>
+  <table id="calculator">
     <thead>
       <tr>
         <th>Goal</th>
@@ -55,78 +53,36 @@ permalink: /nutrition-calculator/
 </div>
 <div class="row">
   <h3>What Is This?</h3>
-  
-  <!-- TODO: post about jekyll in dev & gh-pages... perhaps gh-pages gem in prod only group? using cascading config.yml + foremant -->
 
-  <p>Macronutrient composition is more important than caloric load as one can calculate caloric load given macronutrients. However, one cannot determine macros from calories alone.</p>
+  <p>I recently read Mark Rippetoe's <a href="http://aasgaardco.com/store/books/starting-strength-basic-barbell-training-413">Starting Strength</a>. And was anxious to get started starting strength.</p>
+<p>The book covers -- in great detail -- the basics of barbell training. It provides thorough explanations of the mechanics of the big lifts:
+  <ul>
+    <li>Squat</li>
+    <li>Press</li>
+    <li>Deadlift</li>
+    <li>Bench press</li>
+    <li>Power clean</li>
+  </ul>
+</p>
+
+ <p>Having read it once, I was anxious to get started. And while I felt that it provided a great foundation, the portion of the book about nutrition didn't give me much to chew on. So, I asked Google for advice</p>
+
+<p>I stumbled upon Feigenbaum's blog post pretty quickly. As a Starting Strength Coach, he's a reputable resource for nutrition information. And the article provides a lot of background and concrete info on nutrition in the context of the Starting Strength novice program</p>
+
+<p>
+  Aside from providing some useful tables that describe nutrition recommendations based on goals (fat loss, body recomposition and muscle gain), sex and weight, the post provides specific examples of individuals and prescribes macronutrient and caloric guidleines for each. 
+</p>
+
+<p>While none of examples quite fit my profile, I'm closest to the "The Fluffy Novice/Intermediate: Measured" example, so I decied to adapt it to determine a starting nutrition plan.</p>
+
+ <p>As Feigenbaum points out, it's best to start with macronutries and to calculate caloric load accodingly. While one can calculate caloric load from macronutrients, once cannot decompose macronutriets from caloric load. So, if you have to choose between the two, start with determining your macronutrients. 
+ </p> 
+
+ <p>With this insight, I decided to calculate my macronutrient requirements. While a spreadsheet would do the trick, I though a JavaScript program would be more useful and more fun. The result was the above <a target="_self" href="#calculator">calculator</a>.
+ </p>
 </div>
+<script type="text/javascript" src="{{ "/assets/nutrition.js" | prepend: site.github.url }}"></script>
 <script>
-  var Plan = function(sex, goal, calories, protein, carbohydrates, fat) {
-    this.sex           = sex; // 'M' or 'F'
-    this.goal          = goal; // 'Recomposition', 'Fat Loss', 'Muscle Gain'
-    this.calories      = calories; // kcal/lb
-    this.protein       = protein; // g/lb
-    this.carbohydrates = carbohydrates; // g/lb
-    this.fat           = fat; // g/lb
-  }
-
-  var plans = [
-    //                                      4 cal/g         4 cal/g       9 cal/g
-    //       sex, goal,            kCal/lb, protein (g/lb), carbs (g/lb), fat (g/lb)
-    new Plan('M', 'Recomposition', 12.75,   1.15,           1.25,         0.35),
-    new Plan('M', 'Fat Loss',      11.43,   1.25,           1.00,         0.27),
-    new Plan('M', 'Muscle Gain',   16.90,   1.10,           1.20,         0.50),
-    new Plan('F', 'Recomposition', 12.62,   1.10,           1.20,         0.38),
-    new Plan('F', 'Fat Loss',      11.35,   1.15,           0.90,         0.35),
-    new Plan('F', 'Muscle Gain',   14.90,   1.00,           1.60,         0.50)
-  ]
-
-  var Client = function(weight, sex) {
-    this.weight  = weight; // in lbs
-    this.sex     = sex; // 'M' or 'F'
-    this.plan    = null; // see Plan
-    this.plans   = plans;
-    this.setPlan = function(goal) {
-      this.plans.find(function(_plan) {
-        if ((this.sex == _plan.sex) && (goal == _plan.goal)) {
-          return this.plan = _plan
-        }
-      }, this)
-    };
-    this.calories = function() {
-      if (this.plan) {
-        return Math.round(this.plan.calories * this.weight);
-      }
-    };
-    this.protein  = function() {
-      if (this.plan) {
-        return Math.round(this.plan.protein * this.weight);
-      }
-    };
-    this.carbohydrates = function() {
-      if (this.plan) {
-        return Math.round(this.plan.carbohydrates * this.weight);
-      }
-    };
-    this.fat = function() {
-      if (this.plan) {
-        return Math.round(this.plan.fat * this.weight);
-      }
-    };
-  }
-
-  var calc = function() {
-    var weight = document.getElementById('weight').value;
-    var sex = document.getElementById('sex').value;
-    var planName = document.getElementById('planName').value;
-    var c = new Client(weight, sex);
-    c.setPlan(planName);
-    document.getElementById('calcCalories').innerHTML = c.calories();
-    document.getElementById('calcProtein').innerHTML = c.protein();
-    document.getElementById('calcCarbohydrates').innerHTML = c.carbohydrates();
-    document.getElementById('calcFat').innerHTML = c.fat();
-  };
-
   $(function() {
     calc();
   })
