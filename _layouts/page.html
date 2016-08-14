@@ -5,6 +5,9 @@ layout: default
 
   <header class="post-header">
     <h2 class="page-heading">{{ page.title }}</h2>
+    {% if page.tldr %}
+      <h5>tl;dr: {{ page.tldr }}</h5>
+    {% endif %}
   </header>
 
   <div class="post-content">
