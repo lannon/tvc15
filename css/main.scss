@@ -120,6 +120,24 @@ footer {
   }
 }
 
+// scrobble
+
+
+#scrobble {
+  transition: opacity 3s ease-out;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  &.active {
+    opacity: 1;
+    height: auto;
+  }
+  #songName, #artistName {
+    font-weight: bold;
+  }
+  path { fill: $teal-color; }
+}
+
 /**
  * Icons
  */
