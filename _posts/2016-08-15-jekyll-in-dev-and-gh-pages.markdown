@@ -1,9 +1,10 @@
 ---
 layout: post
-title:  "Serving Jekyll Locally and via Github Pages"
+title:  "Serving Jekyll Locally and Via Github Pages"
 date:   2016-08-14 14:05:13 -0500
 categories: jekyll tips 
 tags: jekyll development
+tldr: Use site.github.url to build URLs and a second config file to serve site locally.
 ---
 This site is built using [Jekyll](https://jekyllrb.com/). In tinkering with Jekyll, I was seeking a way to serve the site locally while also leveraging the convenience of [GitHub Pages](https://pages.github.com/).
 
