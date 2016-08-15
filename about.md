@@ -10,4 +10,4 @@ It's name was inspired by a David Bowie song about folks crawling into televisio
 
 It uses the [Skeleton](http://getskeleton.com/) CSS framework.
 
-Icon SVGs are from the [IcoMoon Free icon set](https://icomoon.io/app/#/select)
+Icon SVGs are from the [IcoMoon Free icon set](https://icomoon.io/app/#/select).
