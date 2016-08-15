@@ -49,6 +49,12 @@ body {
 
 ul.post-list {
   list-style-type: none;
+  li {
+    padding-bottom: 3rem;
+    border-bottom: 2px solid $light-gray-color;
+    &:last-child { border-bottom: 0 }
+  }
+
 }
 
 p.tldr { 
