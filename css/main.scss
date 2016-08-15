@@ -138,10 +138,10 @@ footer {
   }
 }
 
-// scrobble
+// consumption 
 
 
-#scrobble {
+#scrobble, #untappd {
   transition: opacity 3s ease-out;
   opacity: 0;
   height: 0;
@@ -150,7 +150,7 @@ footer {
     opacity: 1;
     height: auto;
   }
-  #songName, #artistName, #albumName {
+  #songName, #artistName, #albumName, #beerName, #brewerName {
     font-weight: bold;
   }
   path { fill: $teal-color; }
