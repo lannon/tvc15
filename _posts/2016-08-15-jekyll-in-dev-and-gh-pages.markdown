@@ -37,6 +37,6 @@ github:
   url: http://localhost:4000
 {% endhighlight %}
 
-I didn't want to type that anytime I wanted to serve Jekyll locally, so I decided that I'd use [foreman](https://github.com/ddollar/foreman) to launch my server.
+I didn't want to type that everytimeI wanted to serve Jekyll locally, so I decided that I'd use [foreman](https://github.com/ddollar/foreman) to launch my server.
 
 Now I'm able to view my development changes locally at `http://localhost:4000` while leveraging the convenience of automatic deployments to GitHub Pages whenever I push my branch. There are likely other ways to skin this cat, but this one works.
