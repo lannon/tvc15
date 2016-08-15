@@ -153,6 +153,7 @@ footer {
   opacity: 0;
   height: 0;
   overflow: hidden;
+  cursor: pointer;
   &.active {
     opacity: 1;
     height: auto;

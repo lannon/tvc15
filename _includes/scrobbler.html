@@ -23,6 +23,9 @@
           $scrobbleDiv.addClass('active');
         });
     };
+    $('footer').on('click', '#scrobble', function() {
+      window.open("http://www.last.fm/user/jlannon",'_blank');
+    });
     setTimeout(function() {
       scrobble();
     }, 250);
