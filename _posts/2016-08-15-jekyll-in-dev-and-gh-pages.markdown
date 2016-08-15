@@ -26,7 +26,7 @@ github:
 
 However, when I attempted to make the suggested change in my `_config.yml`, the value was not replaced by GitHub Pages and all URLs in that environment referenced my localhost. It's likely that I'm missing something and that this method works, but I gave decided to try another technique.
 
-Using the `-c` or `--config` flag, One can specify multiple config files when runnign the `jekyll` binary. Jekyll loads the files in reverse order of precedence. So, one can set values in their `_config.yml`, then override them in another file: 
+Using the `-c` or `--config` flag, one can specify multiple config files when running the `jekyll` binary. Jekyll loads the files in reverse order of precedence. So, one can set values in their `_config.yml`, then override them in another file: 
 
 `bundle exec jekyll serve --config "_config.yml,config.development.yml"`
 
