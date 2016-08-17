@@ -11,50 +11,60 @@ tldr: A simple calculator that attempts to calculate caloric load and macronutri
 ---
 <style>
   td.user-input { padding-top: 2.5rem; }
+  div.row.calc { border-bottom: 1px solid #ccc; margin-bottom: 2rem; }
+  #calcCalories, #calcProtein, #calcCarbohydrates, #calcFat { font-size: 3rem; color: blue; }
 </style>
 
-<div class="row">
-  <table id="calculator">
-    <thead>
-      <tr>
-        <th>Goal</th>
-        <th>Sex</th>
-        <th>Weight</th>
-        <th>Calories</th>
-        <th>Protein</th>
-        <th>Carbohydates</th>
-        <th>Fat</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="user-input">
-          <select id="planName" onchange="calc()" title="plan goal">
-            <option value="Recomposition">Recomposition</option>
-            <option value="Fat Loss">Fat Loss</option>
-            <option value="Muscle Gain">Muscle Gain</option>
-          </select>
-        </td>
-        <td class="user-input">
-          <select id="sex" onchange="calc()" title="sex -- pick the closest one">
-            <option value="M">Male</option>
-            <option value="F">Female</option>
-          </select>
-        </td>
-        <td class="user-input">
-          <input type="number" id="weight" value=200 onchange="calc()" title="weight (in pounds)">
-        </td>
-        <td id="calcCalories"></td>
-        <td id="calcProtein"></td>
-        <td id="calcCarbohydrates"></td>
-        <td id="calcFat"></td>
-      </tr>
-      <tr>
-        <td colspan="7">Disclaimer: The above data are based on the concrete expamples detailed in the above referenced post. They're oversimplified and not intended to represent Feigenbaum's actual program. Also, the author is not a doctor, lawywer, nutritionist, certified trainer or anything really. Take this with a grain of a salt.</td>
-      </tr>
-    </tbody>
-  </table>
+<div class="row calc" id="calculator">
+  <div class="one-third column">
+    <span>Goal</span>
+  </div>
+  <div class="one-third column">
+    <span>Weight</span>
+  </div>
+  <div class="one-third column">
+    <span>Sex</span>
+  </div>
 </div>
+
+<div class="row calc">
+  <div class="one-third column">
+    <select id="planName" onchange="calc()" title="plan goal">
+      <option value="Recomposition">Recomposition</option>
+      <option value="Fat Loss">Fat Loss</option>
+      <option value="Muscle Gain">Muscle Gain</option>
+    </select>
+  </div>
+  <div class="one-third column">
+    <input type="number" id="weight" value=200 onchange="calc()" title="weight (in pounds)">
+  </div>
+  <div class="one-third column">
+    <select id="sex" onchange="calc()" title="sex -- pick the closest one">
+      <option value="M">Male</option>
+      <option value="F">Female</option>
+    </select>
+  </div>
+</div>
+
+<div class="row calc" style="padding-bottom: 2rem;">
+  <div class="three columns">
+    <strong>Calories</strong><br /> 
+    <span id="calcCalories"></span> kCal
+  </div>
+  <div class="three columns">
+    <strong>Protein</strong><br /> 
+    <span id="calcProtein"></span> grams
+  </div>
+  <div class="three columns">
+    <strong>Carbohydates</strong><br /> 
+    <span id="calcCarbohydrates"></span> grams
+  </div>
+  <div class="three columns">
+    <strong>Fat</strong><br /> 
+    <span id="calcFat"></span> grams
+  </div>
+</div>
+
 <div class="row">
   <h3>What Is This?</h3>
 
