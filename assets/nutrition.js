@@ -1,21 +1,23 @@
-var Plan = function(sex, goal, calories, protein, carbohydrates, fat) {
+var Plan = function(sex, goal, protein, carbohydrates, fat) {
   this.sex           = sex; // 'M' or 'F'
   this.goal          = goal; // 'Recomposition', 'Fat Loss', 'Muscle Gain'
-  this.calories      = calories; // kcal/lb
   this.protein       = protein; // g/lb
   this.carbohydrates = carbohydrates; // g/lb
   this.fat           = fat; // g/lb
+  this.calories      = function() {
+    return ((protein * 4) + (carbohydrates * 4) + (fat * 9));
+  }(); // kcal/lb
 }
 
 var plans = [
   //                                      4 cal/g         4 cal/g       9 cal/g
-  //       sex, goal,            kCal/lb, protein (g/lb), carbs (g/lb), fat (g/lb)
-  new Plan('M', 'Recomposition', 12.75,   1.15,           1.25,         0.35),
-  new Plan('M', 'Fat Loss',      11.43,   1.25,           1.00,         0.27),
-  new Plan('M', 'Muscle Gain',   16.90,   1.10,           2.00,         0.50),
-  new Plan('F', 'Recomposition', 12.62,   1.10,           1.20,         0.38),
-  new Plan('F', 'Fat Loss',      11.35,   1.15,           0.90,         0.35),
-  new Plan('F', 'Muscle Gain',   14.90,   1.00,           1.60,         0.50)
+  //       sex, goal,             protein (g/lb), carbs (g/lb), fat (g/lb)
+  new Plan('M', 'Recomposition',  1.15,           1.25,         0.35),
+  new Plan('M', 'Fat Loss',       1.25,           1.00,         0.27),
+  new Plan('M', 'Muscle Gain',    1.10,           2.00,         0.50),
+  new Plan('F', 'Recomposition',  1.10,           1.20,         0.38),
+  new Plan('F', 'Fat Loss',       1.15,           0.90,         0.35),
+  new Plan('F', 'Muscle Gain',    1.00,           1.60,         0.50)
 ]
 
 var Client = function(weight, sex) {
