@@ -53,7 +53,6 @@ var Client = function(weight, sex) {
       return this.round(this.plan.fat * this.weight);
     }
   };
-
   this.round = function(num) {
     return Math.round(num * 100) / 100;
   };
