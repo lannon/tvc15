@@ -12,7 +12,7 @@ var plans = [
   //       sex, goal,            kCal/lb, protein (g/lb), carbs (g/lb), fat (g/lb)
   new Plan('M', 'Recomposition', 12.75,   1.15,           1.25,         0.35),
   new Plan('M', 'Fat Loss',      11.43,   1.25,           1.00,         0.27),
-  new Plan('M', 'Muscle Gain',   16.90,   1.10,           1.20,         0.50),
+  new Plan('M', 'Muscle Gain',   16.90,   1.10,           2.00,         0.50),
   new Plan('F', 'Recomposition', 12.62,   1.10,           1.20,         0.38),
   new Plan('F', 'Fat Loss',      11.35,   1.15,           0.90,         0.35),
   new Plan('F', 'Muscle Gain',   14.90,   1.00,           1.60,         0.50)
