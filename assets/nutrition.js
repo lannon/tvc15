@@ -35,23 +35,27 @@ var Client = function(weight, sex) {
   };
   this.calories = function() {
     if (this.plan) {
-      return Math.round(this.plan.calories * this.weight);
+      return this.round(this.plan.calories * this.weight);
     }
   };
   this.protein  = function() {
     if (this.plan) {
-      return Math.round(this.plan.protein * this.weight);
+      return this.round(this.plan.protein * this.weight);
     }
   };
   this.carbohydrates = function() {
     if (this.plan) {
-      return Math.round(this.plan.carbohydrates * this.weight);
+      return this.round(this.plan.carbohydrates * this.weight);
     }
   };
   this.fat = function() {
     if (this.plan) {
-      return Math.round(this.plan.fat * this.weight);
+      return this.round(this.plan.fat * this.weight);
     }
+  };
+
+  this.round = function(num) {
+    return Math.round(num * 100) / 100;
   };
 }
 
