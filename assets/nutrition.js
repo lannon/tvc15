@@ -15,6 +15,7 @@ var plans = [
   new Plan('M', 'Recomposition',  1.15,           1.25,         0.35),
   new Plan('M', 'Fat Loss',       1.25,           1.00,         0.27),
   new Plan('M', 'Muscle Gain',    1.10,           2.00,         0.50),
+
   new Plan('F', 'Recomposition',  1.10,           1.20,         0.38),
   new Plan('F', 'Fat Loss',       1.15,           0.90,         0.35),
   new Plan('F', 'Muscle Gain',    1.00,           1.60,         0.50)
