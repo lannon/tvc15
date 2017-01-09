@@ -5,10 +5,10 @@ date:   2016-12-29 15:58:00 -0600
 categories: raspberry-pi audio
 tags: raspberry-pi audio
 published: false
-tldr: How to play music from you Rasperry Pi with HifiBerry DAC under Raspain Jessie
+tldr: How to play music from you Rasperry Pi 1 with HifiBerry DAC under Raspain Jessie
 ---
 
-I recently unearthed a couple of old Rasberry Pi Model B units equipped with HifiBerry DAC HATs. It's been
+I recently unearthed a couple of old Rasberry Pi 1 Model B units equipped with HifiBerry DAC HATs. It's been
 a couple of years since I tinkered with them, so I decided to see if I could get them to play music. 
 
 I was able to get everything up and running using [Pi MusicBox](http://www.pimusicbox.com/), which provides
@@ -16,7 +16,6 @@ just about everything one needs to run a music player on a Rasperry Pi. If you j
 out of the box, Pi MusicBox is fantastic.
 
 However, I wanted to leverage the newer Raspian release, Jessie. And I wanted to configure everything myself. 
-
 
 1. Download [Latest Jessie Lite Image](https://downloads.raspberrypi.org/raspbian_lite_latest.torrent)
 2. [Install Image](https://www.raspberrypi.org/documentation/installation/installing-images/README.md)
