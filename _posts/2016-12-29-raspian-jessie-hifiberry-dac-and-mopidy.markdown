@@ -1,14 +1,14 @@
 ---
 layout: post
-title:  "Running Mopidy on a Raspberry Pi Model B with a HifiBerry DAC using Raspian Jessie"
+title:  "Running Mopidy on a Raspberry Pi 1 Model B with a HifiBerry DAC using Raspian Jessie"
 date:   2016-12-29 15:58:00 -0600
 categories: raspberry-pi audio
 tags: raspberry-pi audio
-published: false
-tldr: How to play music from you Rasperry Pi with HifiBerry DAC under Raspain Jessie
+published: true
+tldr: Raspberry Pi 1 Model B + HifiBerry DAC + Raspian + Mopidy = Fully Operational HiFi Music Player
 ---
 
-I recently unearthed a couple of old Rasberry Pi Model B units equipped with HifiBerry DAC HATs. It's been
+I recently unearthed a couple of old Rasberry Pi 1 Model B units equipped with HifiBerry DAC HATs. It's been
 a couple of years since I tinkered with them, so I decided to see if I could get them to play music. 
 
 I was able to get everything up and running using [Pi MusicBox](http://www.pimusicbox.com/), which provides
@@ -34,8 +34,11 @@ However, I wanted to leverage the newer Raspian release, Jessie. And I wanted to
    to enable HifiBerry and disable default audio. Comment out the `dtparam=audio=on` setting. Add `dtoverlay=hifiberry-dac`. Save file and reboot (or
    you can reboot after installing mopidy if you can't afford extraneous reboots).
 9. [Install Mopidy](https://docs.mopidy.com/en/latest/installation/debian/#debian-install). The Mopidy docs are great. Just follow the instructions
-   on that page.
-10. [Configure Mopidy](https://docs.mopidy.com/en/latest/config/). I wanted to run Mopidy as a service, so I affected the config file at /etc/mopidy/mopidy.conf.
- 
+10. [Configure Mopidy](https://docs.mopidy.com/en/latest/config/). I wanted to run Mopidy as a service, so I edited the config file at /etc/mopidy/mopidy.conf.
+    See my [mopidy.conf](https://gist.github.com/lannon/26f048d91f064faa366f3005a0ff209f). There's quire a bit going on here. See inline comments for more details.
+11. Install [Mopify](https://github.com/dirkgroenen/mopidy-mopify#installation) HTTP frontend. 
 
+### My config files
 
+* [/boot/config.txt](https://gist.github.com/lannon/74ad21f3fa557a2b95ecf74e696ba493)
+* [mopidy.conf](https://gist.github.com/lannon/26f048d91f064faa366f3005a0ff209f)
