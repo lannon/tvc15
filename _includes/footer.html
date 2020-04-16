@@ -46,6 +46,12 @@
           {% include icon-linkedin.html username=site.linkedin_username %}
         </li>
         {% endif %}
+
+        {% if site.strava_username %}
+        <li>
+          {% include icon-strava.html username=site.strava_username %}
+        </li>
+        {% endif %}
       </ul>
     </div>
   </div>
