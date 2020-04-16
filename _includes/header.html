@@ -1,15 +1,15 @@
 <header id="site-header">
   <div class="container">
     <h1 class="logo">
-      <img src="{{ "/assets/tv.svg" | prepend: site.github.url }}" />
-      <a title="oh my" href="{{ site.github.url }}/">{{ site.title }}</a>
+      <img src="{{ "/assets/tv.svg" | relative_url }}" />
+      <a title="oh my" href="{{ absolute_url }}/">{{ site.title }}</a>
     </h1>
 
     <nav>
       <ul>
         {% for my_page in site.pages %}
           {% if my_page.title %}
-          <li><a href="{{ my_page.url | prepend: site.github.url}}">{{ my_page.title }}</a></li>
+          <li><a href="{{ my_page.url | relative_url }}">{{ my_page.title }}</a></li>
           {% endif %}
         {% endfor %}
       </ul>
